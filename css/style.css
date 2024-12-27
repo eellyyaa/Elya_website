@@ -1,0 +1,55 @@
+body { 
+    background-color:blueviolet;
+    font-family: 'Courier New', Courier, monospace; 
+}
+
+.my_photo{
+    background: url(../images/svin1.jpg) no-repeat center center;
+    background-size: 100%;
+    width: 250px;
+    height: 250px;
+}
+
+.nav_logo{
+    background: url(../images/fefu.jpg) no-repeat center center;
+    background-size: 100%;
+    width: 150px;
+    height: 150px;
+
+}
+
+.nav_bar{
+    font-size: 1000px;
+    font-weight: bold;
+}
+
+.container {
+}
+
+.row {
+}
+
+.col-8 {
+}
+
+.col-4 {
+}
+
+.col-3.nav_logo {
+}
+
+.col-9 {
+}
+
+.nav_text {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.img_size {
+}
+
+.title_photo {
+    text-align: right;
+}
