@@ -1,22 +1,28 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
 $servername = "127.0.0.1";  
-$username = "your_user_name";  
-$password = "password";  
-$dbName = "bd_name";  
+$username = "root";  
+$password = "kali";  // Замените на ваш пароль
+$dbName = "elya_website";  // Замените на имя вашей базы данных
+
 
 $link = mysqli_connect($servername, $username, $password);
-
 if (!$link) {
     die("Ошибка подключения: " . mysqli_connect_error());
 }
+
 
 $sql = "CREATE DATABASE IF NOT EXISTS $dbName";
 if (!mysqli_query($link, $sql)) {
     die("Не удалось создать БД: " . mysqli_error($link));
 }
 
-$link = mysqli_connect($servername, $username, $password, $dbName);
 
+$link = mysqli_connect($servername, $username, $password, $dbName);
 if (!$link) {
     die("Ошибка подключения к базе данных: " . mysqli_connect_error());
 }
@@ -31,14 +37,16 @@ if (!mysqli_query($link, $sql)) {
     die("Не удалось создать таблицу Users: " . mysqli_error($link));
 }
 
+
 $sql = "CREATE TABLE IF NOT EXISTS posts (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(20) NOT NULL,
     main_text VARCHAR(400) NOT NULL
 )";
 if (!mysqli_query($link, $sql)) {
-    die("Не удалось создать таблицу posts: " . mysqli_error($link));
+    die("Не удалось создать таблицу Posts: " . mysqli_error($link));
 }
+
 
 mysqli_close($link);
 ?>
