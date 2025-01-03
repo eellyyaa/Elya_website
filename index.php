@@ -2,7 +2,7 @@
 
 if (isset($_COOKIE['User'])) {
  
-    $link = mysqli_connect('127.0.0.1', 'root', 'your_password', 'nameDB');
+    $link = mysqli_connect('127.0.0.1', 'root', 'kali', 'first');
     if (!$link) {
         die("Ошибка подключения: " . mysqli_connection_error());
     }
