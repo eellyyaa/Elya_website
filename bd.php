@@ -6,8 +6,8 @@ error_reporting(E_ALL);
 
 $servername = "127.0.0.1";  
 $username = "root";  
-$password = "kali";  // Замените на ваш пароль
-$dbName = "elya_website";  // Замените на имя вашей базы данных
+$password = "kali";  
+$dbName = "Elya_website";  
 
 
 $link = mysqli_connect($servername, $username, $password);
