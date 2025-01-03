@@ -1,39 +1,54 @@
 <?php
-require_once('bd.php');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 if (isset($_COOKIE['User'])) {
     header("Location: profile.php");
     exit();
 }
 
+
 if (isset($_POST['submit'])) {
+
     $login = $_POST['username'];
     $password = $_POST['password'];
+
 
     if (!$login || !$password) {
         die('Пожалуйста, введите все данные!');
     }
 
-    $link = mysqli_connect('127.0.0.1', 'root', 'password', 'name_db');
+
+    $link = mysqli_connect('127.0.0.1', 'root', 'kali', 'Ekya_website');
     if (!$link) {
-        die("Ошибка подключения: " . mysqli_connection_error());
+        die("Ошибка подключения: " . mysqli_connect_error());
     }
 
-    $sql = "SELECT * FROM users WHERE username='$login' AND password='$password'";
+    $sql = "SELECT * FROM users WHERE username='$login'";
 
     $result = mysqli_query($link, $sql);
-
     if (mysqli_num_rows($result) == 1) {
-        setcookie("User", $login, time() + 7200); 
-        header('Location: profile.php');
-        exit();
+   
+        $user = mysqli_fetch_assoc($result);
+
+   
+        if (password_verify($password, $user['password'])) {
+      
+            setcookie("User", $login, time() + 7200); 
+            header('Location: profile.php');
+            exit();
+        } else {
+            echo "Неправильный пароль.";
+        }
     } else {
         echo "Неправильное имя пользователя или пароль.";
     }
 
+
     mysqli_close($link);
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="ru">
