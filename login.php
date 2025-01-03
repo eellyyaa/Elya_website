@@ -19,7 +19,7 @@ if (isset($_POST['submit'])) {
     }
 
 
-    $link = mysqli_connect('127.0.0.1', 'root', 'kali', 'Elya_website');
+    $link = mysqli_connect('127.0.0.1', 'root', 'kali', 'first');
     if (!$link) {
         die("Ошибка подключения: " . mysqli_connect_error());
     }
